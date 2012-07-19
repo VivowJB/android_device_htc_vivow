@@ -215,12 +215,26 @@ static int set_light_backlight(struct light_device_t* dev,
 	pthread_mutex_lock(&g_lock);
 	g_backlight = brightness;
 	err = write_int(LCD_BACKLIGHT_FILE, brightness);
+	
+	// Set buttons backlights
+	int brightnessButtons;
+
+	if (brightness < 20) {
+		brightnessButtons = 20; 
+	} else {
+		brightnessButtons = brightness;
+	}
+	
+	write_int (BUTTON_P_FILE, brightnessButtons);
+	write_int (BUTTON_L_FILE, 0);
+
 	pthread_mutex_unlock(&g_lock);
 	return err;
 }
 
 static int set_light_buttons (struct light_device_t* dev,
 		struct light_state_t const* state) {
+	/**
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
 	char orientprop[PROPERTY_VALUE_MAX];
@@ -235,7 +249,8 @@ static int set_light_buttons (struct light_device_t* dev,
 		err = write_int (BUTTON_L_FILE, 0);
 	}
 	pthread_mutex_unlock (&g_lock);
-
+	*/
+	
 	return 0;
 }
 
