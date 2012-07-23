@@ -199,3 +199,7 @@ PRODUCT_COPY_FILES += \
 # Softkey Rotation Script
 PRODUCT_COPY_FILES += \
     device/htc/vivow/rotate_lights.sh:/system/etc/rotate_lights.sh
+	
+# OTA App
+PRODUCT_COPY_FILES += \
+    device/htc/vivow/prebuilt/OTA.apk:/system/app/OTA.apk
