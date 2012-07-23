@@ -85,3 +85,6 @@ ro.camera.preview=true
 # USB Mount
 persist.sys.usb.config=mass_storage,adb
 persist.service.adb.enable=1
+
+# OTA
+N7.CM.build.code=120723
